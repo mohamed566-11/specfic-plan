@@ -15,21 +15,15 @@ body {
   font-family: inherit;
 }
 
-/* Floating Logo Animation */
-.floating-logo {
-  will-change: top, transform;
-  animation: fadeInFloat 0.6s ease-out;
+/* RTL: ensure inputs and placeholders are right-aligned */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
 }
 
-@keyframes fadeInFloat {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-20px);
-  }
-  to {
-    opacity: 0.85;
-    transform: translateY(-50%) translateX(0);
-  }
+html[dir="rtl"] input::placeholder,
+html[dir="rtl"] textarea::placeholder {
+  text-align: right;
 }
 
 /* Smooth scroll behavior */
@@ -37,12 +31,407 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Fade in animation for footer */
+/* ══════════════════════════════════════════
+   ⚡ ROBOT PROGRESS BAR ANIMATIONS
+   ══════════════════════════════════════════ */
+
+/* ── Robot character base ────────────── */
+.robot-character {
+  position: relative;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.robot-character:hover {
+  transform: scale(1.1);
+}
+
+/* ── Robot Running ───────────────────── */
+.robot-running {
+  animation: robotBounce 0.3s ease-in-out infinite;
+}
+
+@keyframes robotBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+
+  75% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+@keyframes robotHop {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Running legs animation */
+.robot-legs-run .robot-left-leg {
+  animation: leftLegRun 0.25s ease-in-out infinite alternate;
+  transform-origin: 17px 43px;
+}
+
+.robot-legs-run .robot-right-leg {
+  animation: rightLegRun 0.25s ease-in-out infinite alternate-reverse;
+  transform-origin: 26px 43px;
+}
+
+@keyframes leftLegRun {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes rightLegRun {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+/* Running arms animation */
+.robot-arms-run .robot-left-arm {
+  animation: leftArmRun 0.25s ease-in-out infinite alternate-reverse;
+  transform-origin: 10px 33px;
+}
+
+.robot-arms-run .robot-right-arm {
+  animation: rightArmRun 0.25s ease-in-out infinite alternate;
+  transform-origin: 34px 33px;
+}
+
+@keyframes leftArmRun {
+  0% {
+    transform: rotate(-25deg);
+  }
+
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes rightArmRun {
+  0% {
+    transform: rotate(-25deg);
+  }
+
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+/* ── Robot Celebration ───────────────── */
+.robot-celebrate {
+  animation: robotCelebrate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+/* ── Wave arm during celebration ─────── */
+.robot-wave-arm {
+  animation: waveArm 0.5s ease-in-out infinite;
+  transform-origin: 36px 33px;
+}
+
+@keyframes waveArm {
+
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  25% {
+    transform: rotate(-30deg) translateY(-4px);
+  }
+
+  75% {
+    transform: rotate(10deg) translateY(-2px);
+  }
+}
+
+@keyframes robotCelebrate {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  20% {
+    transform: translateY(-20px) scale(1.15);
+  }
+
+  40% {
+    transform: translateY(-5px) scale(1.05) rotate(5deg);
+  }
+
+  60% {
+    transform: translateY(-15px) scale(1.1) rotate(-5deg);
+  }
+
+  80% {
+    transform: translateY(-3px) scale(1.02) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+/* ── Celebration Stars ───────────────── */
+.star-pop {
+  animation: starPopUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  opacity: 0;
+}
+
+.star-pop-1 {
+  animation-delay: 0s;
+}
+
+.star-pop-2 {
+  animation-delay: 0.2s;
+}
+
+.star-pop-3 {
+  animation-delay: 0.4s;
+}
+
+.star-pop-4 {
+  animation-delay: 0.6s;
+}
+
+@keyframes starPopUp {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1.5) translateY(-8px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-4px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-16px);
+  }
+}
+
+/* ── Antenna glow ────────────────────── */
+.antenna-glow {
+  filter: drop-shadow(0 0 6px #4ade80) drop-shadow(0 0 12px #22c55e);
+}
+
+/* ── Particle burst ──────────────────── */
+.particle-burst {
+  width: var(--psize);
+  height: var(--psize);
+  background: var(--pcolor);
+  border-radius: 50%;
+  position: absolute;
+  animation: particleBurst 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: var(--pdelay);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(calc(var(--px) * 0.7), calc(var(--py) * 0.7)) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--px), var(--py)) scale(0);
+  }
+}
+
+/* ── Robot glow ring ─────────────────── */
+.robot-glow {
+  animation: glowPulse 0.6s ease-out forwards;
+}
+
+@keyframes glowPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+    box-shadow: 0 0 20px 10px rgba(74, 222, 128, 0.3);
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    box-shadow: 0 0 30px 15px rgba(74, 222, 128, 0);
+  }
+}
+
+/* ── Shimmer on track ────────────────── */
+.shimmer-track {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+html[dir="rtl"] .shimmer-track {
+  animation: shimmerRTL 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmerRTL {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* ══════════════════════════════════════════
+   STEP TRANSITION ANIMATIONS
+   ══════════════════════════════════════════ */
+
+.step-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.2s ease-in forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.2s ease-in forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+html[dir="rtl"] .slide-out-left {
+  animation: slideOutRight 0.2s ease-in forwards;
+}
+
+html[dir="rtl"] .slide-out-right {
+  animation: slideOutLeft 0.2s ease-in forwards;
+}
+
+/* ── Scale-in for Success ────────────── */
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Shake animation for validation errors ── */
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+/* ── Footer fade-in ──────────────────── */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -64,3 +453,38 @@ html {
   opacity: 0;
 }
 
+/* ── Floating Logo ───────────────────── */
+.floating-logo {
+  will-change: top, transform;
+  animation: fadeInFloat 0.6s ease-out;
+}
+
+@keyframes fadeInFloat {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-20px);
+  }
+
+  to {
+    opacity: 0.85;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* ── Custom Scrollbar ────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
