@@ -65,53 +65,31 @@ export interface FormState {
   challenges: [string, string, string];
   strengths: [string, string, string];
 
-  // Step 4: Vision, Mission, Values
-  currentVision: string;
-  currentMission: string;
-  currentValues: string;
-  visionAction: string;
-
-  // Step 5: Scope
+  // Step 4: Scope
   scopeOptions: string[];
   otherScopeOption: string;
 
-  // Step 6: Markets & Clients
+  // Step 5: Markets & Clients
   currentClients: string;
   clientSegments: string;
   currentRegions: string;
   targetMarkets: string;
   competitors: [string, string, string];
 
-  // Step 7: Products/Services
-  currentProducts: [string, string, string];
-  plannedProducts: [string, string];
-
-  // Step 8: Performance
+  // Step 6: Performance
   annualRevenue: string;
   growthRate: string;
   profitMargin: string;
 
-  // Step 9: Resources
-  resources: string[];
-  otherResource: string;
-
-  // Step 10: Stakeholders
-  ceo: string;
-  strategyDirector: string;
-  financeDirector: string;
-  hrDirector: string;
-  opsDirector: string;
-  consultingContact: string;
-
-  // Step 11: Expected Outputs
+  // Step 7: Expected Outputs
   expectedOutputs: string[];
   otherExpectedOutput: string;
 
-  // Step 12: Timeline
+  // Step 8: Timeline
   proposedStartDate: string;
   urgency: string;
 
-  // Step 13: Attachments
+  // Step 9: Attachments
   attachmentTypes: string[];
   files: File[];
 }

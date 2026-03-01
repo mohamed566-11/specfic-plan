@@ -26,53 +26,31 @@ CREATE TABLE IF NOT EXISTS strategic_plan_requests (
     challenges JSON DEFAULT NULL,
     strengths JSON DEFAULT NULL,
     
-    -- Step 4: Vision, Mission, Values
-    current_vision TEXT DEFAULT NULL,
-    current_mission TEXT DEFAULT NULL,
-    current_values TEXT DEFAULT NULL,
-    vision_action VARCHAR(255) DEFAULT NULL,
-    
-    -- Step 5: Scope
+    -- Step 4: Scope
     scope_options JSON DEFAULT NULL,
     other_scope_option TEXT DEFAULT NULL,
     
-    -- Step 6: Markets & Clients
+    -- Step 5: Markets & Clients
     current_clients TEXT DEFAULT NULL,
     client_segments TEXT DEFAULT NULL,
     current_regions TEXT DEFAULT NULL,
     target_markets TEXT DEFAULT NULL,
     competitors JSON DEFAULT NULL,
     
-    -- Step 7: Products/Services
-    current_products JSON DEFAULT NULL,
-    planned_products JSON DEFAULT NULL,
-    
-    -- Step 8: Performance
+    -- Step 6: Performance
     annual_revenue VARCHAR(255) DEFAULT NULL,
     growth_rate VARCHAR(100) DEFAULT NULL,
     profit_margin VARCHAR(100) DEFAULT NULL,
     
-    -- Step 9: Resources
-    resources JSON DEFAULT NULL,
-    other_resource TEXT DEFAULT NULL,
-    
-    -- Step 10: Stakeholders
-    ceo VARCHAR(255) DEFAULT NULL,
-    strategy_director VARCHAR(255) DEFAULT NULL,
-    finance_director VARCHAR(255) DEFAULT NULL,
-    hr_director VARCHAR(255) DEFAULT NULL,
-    ops_director VARCHAR(255) DEFAULT NULL,
-    consulting_contact VARCHAR(255) DEFAULT NULL,
-    
-    -- Step 11: Expected Outputs
+    -- Step 7: Expected Outputs
     expected_outputs JSON DEFAULT NULL,
     other_expected_output TEXT DEFAULT NULL,
     
-    -- Step 12: Timeline
+    -- Step 8: Timeline
     proposed_start_date DATE DEFAULT NULL,
     urgency VARCHAR(255) DEFAULT NULL,
     
-    -- Step 13: Attachments
+    -- Step 9: Attachments
     attachment_types JSON DEFAULT NULL,
     file_urls JSON DEFAULT NULL,
     

@@ -20,8 +20,7 @@ try {
         
         // Decode JSON-encoded array fields
         $jsonFields = ['request_reasons', 'challenges', 'strengths', 'scope_options', 
-                       'competitors', 'current_products', 'planned_products', 'resources', 
-                       'expected_outputs', 'attachment_types'];
+                       'competitors', 'expected_outputs', 'attachment_types'];
         foreach ($jsonFields as $field) {
             if (isset($input[$field]) && is_string($input[$field])) {
                 $decoded = json_decode($input[$field], true);
@@ -120,13 +119,9 @@ try {
         branch_count, employee_count, applicant_name, job_title, mobile, email,
         request_reasons, other_request_reason, challenge_description,
         challenges, strengths,
-        current_vision, current_mission, current_values, vision_action,
         scope_options, other_scope_option,
         current_clients, client_segments, current_regions, target_markets, competitors,
-        current_products, planned_products,
         annual_revenue, growth_rate, profit_margin,
-        resources, other_resource,
-        ceo, strategy_director, finance_director, hr_director, ops_director, consulting_contact,
         expected_outputs, other_expected_output,
         proposed_start_date, urgency,
         attachment_types, file_urls
@@ -135,13 +130,9 @@ try {
         :branch_count, :employee_count, :applicant_name, :job_title, :mobile, :email,
         :request_reasons, :other_request_reason, :challenge_description,
         :challenges, :strengths,
-        :current_vision, :current_mission, :current_values, :vision_action,
         :scope_options, :other_scope_option,
         :current_clients, :client_segments, :current_regions, :target_markets, :competitors,
-        :current_products, :planned_products,
         :annual_revenue, :growth_rate, :profit_margin,
-        :resources, :other_resource,
-        :ceo, :strategy_director, :finance_director, :hr_director, :ops_director, :consulting_contact,
         :expected_outputs, :other_expected_output,
         :proposed_start_date, :urgency,
         :attachment_types, :file_urls
@@ -199,10 +190,6 @@ try {
         ':challenge_description' => $getStr('challenge_description'),
         ':challenges'            => $getJsonArray('challenges'),
         ':strengths'             => $getJsonArray('strengths'),
-        ':current_vision'        => $getStr('current_vision'),
-        ':current_mission'       => $getStr('current_mission'),
-        ':current_values'        => $getStr('current_values'),
-        ':vision_action'         => $getStr('vision_action'),
         ':scope_options'         => $getJsonArray('scope_options'),
         ':other_scope_option'    => $getStr('other_scope_option'),
         ':current_clients'       => $getStr('current_clients'),
@@ -210,19 +197,9 @@ try {
         ':current_regions'       => $getStr('current_regions'),
         ':target_markets'        => $getStr('target_markets'),
         ':competitors'           => $getJsonArray('competitors'),
-        ':current_products'      => $getJsonArray('current_products'),
-        ':planned_products'      => $getJsonArray('planned_products'),
         ':annual_revenue'        => $getStr('annual_revenue'),
         ':growth_rate'           => $getStr('growth_rate'),
         ':profit_margin'         => $getStr('profit_margin'),
-        ':resources'             => $getJsonArray('resources'),
-        ':other_resource'        => $getStr('other_resource'),
-        ':ceo'                   => $getStr('ceo'),
-        ':strategy_director'     => $getStr('strategy_director'),
-        ':finance_director'      => $getStr('finance_director'),
-        ':hr_director'           => $getStr('hr_director'),
-        ':ops_director'          => $getStr('ops_director'),
-        ':consulting_contact'    => $getStr('consulting_contact'),
         ':expected_outputs'      => $getJsonArray('expected_outputs'),
         ':other_expected_output' => $getStr('other_expected_output'),
         ':proposed_start_date'   => $startDate,

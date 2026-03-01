@@ -7,10 +7,10 @@ import { ProgressRobot } from './components/ProgressRobot';
 
 // ─── API Configuration ──────────────────────────────
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? `http://${window.location.hostname}/mahroo3k-evalution%20-%20Copy/api`
+  ? `http://${window.location.hostname}/specfic-plan/api`
   : '/api';
 
-const TOTAL_STEPS = 13;
+const TOTAL_STEPS = 9;
 
 const STEP_ICONS = [
   Building2, Target, Eye, Compass, Compass, Users, Package, BarChart3, Wrench, UserCheck, ClipboardList, Clock, Paperclip
@@ -21,13 +21,9 @@ const initialFormState: FormState = {
   applicantName: '', jobTitle: '', mobile: '', email: '',
   requestReasons: [], otherRequestReason: '', challengeDescription: '',
   challenges: ['', '', ''], strengths: ['', '', ''],
-  currentVision: '', currentMission: '', currentValues: '', visionAction: '',
   scopeOptions: [], otherScopeOption: '',
   currentClients: '', clientSegments: '', currentRegions: '', targetMarkets: '', competitors: ['', '', ''],
-  currentProducts: ['', '', ''], plannedProducts: ['', ''],
   annualRevenue: '', growthRate: '', profitMargin: '',
-  resources: [], otherResource: '',
-  ceo: '', strategyDirector: '', financeDirector: '', hrDirector: '', opsDirector: '', consultingContact: '',
   expectedOutputs: [], otherExpectedOutput: '',
   proposedStartDate: '', urgency: '',
   attachmentTypes: [], files: [],
@@ -54,43 +50,27 @@ const STEP_VALIDATIONS: StepValidation[] = [
   {
     requiredFields: [],
   },
-  // Step 3: Vision, Mission, Values - optional
+  // Step 3: Scope - optional
   {
     requiredFields: [],
   },
-  // Step 4: Scope - optional
+  // Step 4: Markets & Clients - optional
   {
     requiredFields: [],
   },
-  // Step 5: Markets & Clients - optional
+  // Step 5: Performance - optional
   {
     requiredFields: [],
   },
-  // Step 6: Products/Services - optional
+  // Step 6: Expected Outputs - optional
   {
     requiredFields: [],
   },
-  // Step 7: Performance - optional
+  // Step 7: Timeline - optional
   {
     requiredFields: [],
   },
-  // Step 8: Resources - optional
-  {
-    requiredFields: [],
-  },
-  // Step 9: Stakeholders - optional
-  {
-    requiredFields: [],
-  },
-  // Step 10: Expected Outputs - optional
-  {
-    requiredFields: [],
-  },
-  // Step 11: Timeline - optional
-  {
-    requiredFields: [],
-  },
-  // Step 12: Attachments - optional
+  // Step 8: Attachments - optional
   {
     requiredFields: [],
   },
@@ -323,10 +303,6 @@ const App: React.FC = () => {
         email: formState.email,
         other_request_reason: formState.otherRequestReason,
         challenge_description: formState.challengeDescription,
-        current_vision: formState.currentVision,
-        current_mission: formState.currentMission,
-        current_values: formState.currentValues,
-        vision_action: formState.visionAction,
         other_scope_option: formState.otherScopeOption,
         current_clients: formState.currentClients,
         client_segments: formState.clientSegments,
@@ -335,13 +311,6 @@ const App: React.FC = () => {
         annual_revenue: formState.annualRevenue,
         growth_rate: formState.growthRate,
         profit_margin: formState.profitMargin,
-        other_resource: formState.otherResource,
-        ceo: formState.ceo,
-        strategy_director: formState.strategyDirector,
-        finance_director: formState.financeDirector,
-        hr_director: formState.hrDirector,
-        ops_director: formState.opsDirector,
-        consulting_contact: formState.consultingContact,
         other_expected_output: formState.otherExpectedOutput,
         proposed_start_date: formState.proposedStartDate,
         urgency: formState.urgency,
@@ -359,9 +328,6 @@ const App: React.FC = () => {
         strengths: formState.strengths,
         scope_options: formState.scopeOptions,
         competitors: formState.competitors,
-        current_products: formState.currentProducts,
-        planned_products: formState.plannedProducts,
-        resources: formState.resources,
         expected_outputs: formState.expectedOutputs,
         attachment_types: formState.attachmentTypes,
       };
@@ -663,17 +629,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 3: // Vision, Mission, Values
-        return (
-          <div>
-            {renderTextarea('currentVision', f.currentVision, p.currentVision || '')}
-            {renderTextarea('currentMission', f.currentMission, p.currentMission || '')}
-            {renderTextarea('currentValues', f.currentValues, p.currentValues || '')}
-            {renderRadioGroup('visionAction', o.visionAction || [], f.visionAction)}
-          </div>
-        );
-
-      case 4: // Scope
+      case 3: // Scope
         return (
           <div>
             {renderCheckboxGroup('scopeOptions', o.scopeOptions || [], f.scopeOptions)}
@@ -681,7 +637,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 5: // Markets & Clients
+      case 4: // Markets & Clients
         return (
           <div>
             {renderTextInput('currentClients', f.currentClients, p.currentClients || '')}
@@ -704,34 +660,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 6: // Products/Services
-        return (
-          <div>
-            <div className="mb-6">
-              <h4 className="text-gray-800 font-semibold text-sm sm:text-base mb-3 flex items-center gap-2">
-                <span className="w-1 h-5 bg-primary-500 rounded-full"></span>
-                {f.currentProductsTitle}
-              </h4>
-              <div className="space-y-1">
-                {renderArrayInput('currentProducts', 0, f.product1, p.product1 || '')}
-                {renderArrayInput('currentProducts', 1, f.product2, p.product2 || '')}
-                {renderArrayInput('currentProducts', 2, f.product3, p.product3 || '')}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-gray-800 font-semibold text-sm sm:text-base mb-3 flex items-center gap-2">
-                <span className="w-1 h-5 bg-primary-500 rounded-full"></span>
-                {f.plannedProductsTitle}
-              </h4>
-              <div className="space-y-1">
-                {renderArrayInput('plannedProducts', 0, f.planned1, p.planned1 || '')}
-                {renderArrayInput('plannedProducts', 1, f.planned2, p.planned2 || '')}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 7: // Performance
+      case 5: // Performance
         return (
           <div>
             <p className="text-sm text-gray-500 mb-4 italic">{isRTL ? '(إن أمكن)' : '(if possible)'}</p>
@@ -741,33 +670,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 8: // Resources
-        return (
-          <div>
-            {renderCheckboxGroup('resources', o.resources || [], f.resources)}
-            {renderTextInput('otherResource', f.otherResource, p.otherResource || '')}
-          </div>
-        );
-
-      case 9: // Stakeholders
-        return (
-          <div className="space-y-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-              {renderTextInput('ceo', f.ceo, p.ceo || '')}
-              {renderTextInput('strategyDirector', f.strategyDirector, p.strategyDirector || '')}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-              {renderTextInput('financeDirector', f.financeDirector, p.financeDirector || '')}
-              {renderTextInput('hrDirector', f.hrDirector, p.hrDirector || '')}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-              {renderTextInput('opsDirector', f.opsDirector, p.opsDirector || '')}
-              {renderTextInput('consultingContact', f.consultingContact, p.consultingContact || '')}
-            </div>
-          </div>
-        );
-
-      case 10: // Expected Outputs
+      case 6: // Expected Outputs
         return (
           <div>
             {renderCheckboxGroup('expectedOutputs', o.expectedOutputs || [], f.expectedOutputs)}
@@ -775,7 +678,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 11: // Timeline
+      case 7: // Timeline
         return (
           <div>
             <div className="mb-5">
@@ -791,7 +694,7 @@ const App: React.FC = () => {
           </div>
         );
 
-      case 12: // Attachments
+      case 8: // Attachments
         return (
           <div>
             {renderCheckboxGroup('attachmentTypes', o.attachmentTypes || [], f.attachmentTypes)}

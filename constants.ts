@@ -79,27 +79,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           strength3: "نقطة القوة الثالثة...",
         },
       },
-      {
-        title: "الرؤية والرسالة والقيم",
-        fields: {
-          currentVision: "الرؤية الحالية",
-          currentMission: "الرسالة الحالية",
-          currentValues: "القيم المؤسسية الحالية",
-          visionAction: "هل ترغبون في",
-        },
-        placeholders: {
-          currentVision: "أدخل الرؤية الحالية إن وجدت...",
-          currentMission: "أدخل الرسالة الحالية إن وجدت...",
-          currentValues: "أدخل القيم المؤسسية الحالية إن وجدت...",
-        },
-        options: {
-          visionAction: [
-            "تحديثها بالكامل",
-            "تحسين الصياغة فقط",
-            "اعتمادها كما هي مع مواءمة الخطة عليها",
-          ],
-        },
-      },
+
       {
         title: "نطاق الخطة الاستراتيجية المطلوبة",
         fields: {
@@ -144,25 +124,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           competitor3: "اسم المنافس الثالث...",
         },
       },
-      {
-        title: "المنتجات/الخدمات",
-        fields: {
-          currentProductsTitle: "قائمة مختصرة بأهم المنتجات/الخدمات الحالية",
-          product1: "المنتج/الخدمة الأولى",
-          product2: "المنتج/الخدمة الثانية",
-          product3: "المنتج/الخدمة الثالثة",
-          plannedProductsTitle: "ما المنتجات/الخدمات التي تخططون لإضافتها؟",
-          planned1: "المنتج/الخدمة المخطط لها أولاً",
-          planned2: "المنتج/الخدمة المخطط لها ثانياً",
-        },
-        placeholders: {
-          product1: "المنتج أو الخدمة الأولى...",
-          product2: "المنتج أو الخدمة الثانية...",
-          product3: "المنتج أو الخدمة الثالثة...",
-          planned1: "المنتج أو الخدمة المخطط لها...",
-          planned2: "المنتج أو الخدمة المخطط لها...",
-        },
-      },
+
       {
         title: "الأداء والمؤشرات الحالية",
         fields: {
@@ -176,44 +138,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           profitMargin: "مثال: 20%",
         },
       },
-      {
-        title: "الموارد والقدرات",
-        fields: {
-          resources: "ما أهم الموارد التي تعتمد عليها الشركة؟",
-          otherResource: "أخرى",
-        },
-        placeholders: {
-          otherResource: "حدد الموارد الأخرى...",
-        },
-        options: {
-          resources: [
-            "رأس المال البشري",
-            "التقنية والأنظمة",
-            "سلسلة الإمداد",
-            "العلامة التجارية",
-            "شبكة الشركاء",
-          ],
-        },
-      },
-      {
-        title: "أصحاب المصلحة الرئيسيون",
-        fields: {
-          ceo: "الرئيس التنفيذي/المدير العام",
-          strategyDirector: "مدير الاستراتيجية/التطوير (إن وجد)",
-          financeDirector: "مدير المالية",
-          hrDirector: "مدير الموارد البشرية",
-          opsDirector: "مدير العمليات",
-          consultingContact: "مسؤول التواصل مع فريق الاستشارات",
-        },
-        placeholders: {
-          ceo: "اسم الرئيس التنفيذي...",
-          strategyDirector: "اسم مدير الاستراتيجية...",
-          financeDirector: "اسم مدير المالية...",
-          hrDirector: "اسم مدير الموارد البشرية...",
-          opsDirector: "اسم مدير العمليات...",
-          consultingContact: "اسم مسؤول التواصل...",
-        },
-      },
+
       {
         title: "المخرجات المتوقعة من وجهة نظر العميل",
         fields: {
@@ -391,27 +316,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           strength3: "Third strength...",
         },
       },
-      {
-        title: "Vision, Mission & Values",
-        fields: {
-          currentVision: "Current Vision",
-          currentMission: "Current Mission",
-          currentValues: "Current Organizational Values",
-          visionAction: "Do you wish to",
-        },
-        placeholders: {
-          currentVision: "Enter current vision if available...",
-          currentMission: "Enter current mission if available...",
-          currentValues: "Enter current organizational values if available...",
-        },
-        options: {
-          visionAction: [
-            "Fully update them",
-            "Improve wording only",
-            "Adopt as-is and align plan with them",
-          ],
-        },
-      },
+
       {
         title: "Scope of Required Strategic Plan",
         fields: {
@@ -456,25 +361,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           competitor3: "Third competitor name...",
         },
       },
-      {
-        title: "Products / Services",
-        fields: {
-          currentProductsTitle: "Brief List of Main Current Products/Services",
-          product1: "Product/Service 1",
-          product2: "Product/Service 2",
-          product3: "Product/Service 3",
-          plannedProductsTitle: "What Products/Services Do You Plan to Add?",
-          planned1: "Planned Product/Service 1",
-          planned2: "Planned Product/Service 2",
-        },
-        placeholders: {
-          product1: "First product or service...",
-          product2: "Second product or service...",
-          product3: "Third product or service...",
-          planned1: "Planned product or service...",
-          planned2: "Planned product or service...",
-        },
-      },
+
       {
         title: "Performance & Current Indicators",
         fields: {
@@ -488,44 +375,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
           profitMargin: "e.g., 20%",
         },
       },
-      {
-        title: "Resources & Capabilities",
-        fields: {
-          resources: "What Are the Main Resources the Company Relies On?",
-          otherResource: "Other",
-        },
-        placeholders: {
-          otherResource: "Specify other resources...",
-        },
-        options: {
-          resources: [
-            "Human Capital",
-            "Technology & Systems",
-            "Supply Chain",
-            "Brand",
-            "Partner Network",
-          ],
-        },
-      },
-      {
-        title: "Key Stakeholders",
-        fields: {
-          ceo: "CEO / General Manager",
-          strategyDirector: "Strategy/Development Director (if available)",
-          financeDirector: "Finance Director",
-          hrDirector: "HR Director",
-          opsDirector: "Operations Director",
-          consultingContact: "Consulting Team Contact Person",
-        },
-        placeholders: {
-          ceo: "CEO name...",
-          strategyDirector: "Strategy director name...",
-          financeDirector: "Finance director name...",
-          hrDirector: "HR director name...",
-          opsDirector: "Operations director name...",
-          consultingContact: "Contact person name...",
-        },
-      },
+
       {
         title: "Expected Outputs (Client Perspective)",
         fields: {

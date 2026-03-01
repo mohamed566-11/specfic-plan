@@ -27,8 +27,7 @@ try {
         
         // Decode JSON fields
         $jsonFields = ['request_reasons', 'challenges', 'strengths', 'scope_options', 
-                       'competitors', 'current_products', 'planned_products', 'resources', 
-                       'expected_outputs', 'attachment_types', 'file_urls'];
+                       'competitors', 'expected_outputs', 'attachment_types', 'file_urls'];
         foreach ($jsonFields as $field) {
             if (isset($record[$field])) {
                 $record[$field] = json_decode($record[$field], true);
@@ -74,8 +73,7 @@ try {
         
         // Decode JSON fields for each record
         $jsonFields = ['request_reasons', 'challenges', 'strengths', 'scope_options', 
-                       'competitors', 'current_products', 'planned_products', 'resources', 
-                       'expected_outputs', 'attachment_types', 'file_urls'];
+                       'competitors', 'expected_outputs', 'attachment_types', 'file_urls'];
         foreach ($records as &$record) {
             foreach ($jsonFields as $field) {
                 if (isset($record[$field])) {
